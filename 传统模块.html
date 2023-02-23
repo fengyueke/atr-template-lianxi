@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 300px;
+            border: 1px solid;
+            padding-left: 5px;
+        }
+    </style>
+    <script src="./js/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="box">
+        <div id="title"></div>
+        <div>
+            姓名：<span id="name"></span>
+        </div>
+        <div>
+            年龄：<span id="age"></span>
+        </div>
+        <div>
+            会员：<span id="isVip"></span>
+        </div>
+        <div>
+            注册时间：<span id="time"></span>
+        </div>
+        <ul id="aihao">
+        </ul>
+    </div>
+    <script>
+        // var date = new Date();
+        var dT = {
+            title: ' <h2>用户信息</h2>',
+            name: 'zs',
+            age: 20,
+            isVip: 'true',
+            regTime: new Date(),
+            hobby: ['吃饭', '睡觉', '打豆豆']
+        }
+        $(function() {
+            $('#title').html(dT.title);
+            $('#name').html(dT.name);
+            $('#age').html(dT.age);
+            $('#isVip').html(dT.isVip);
+            $('#time').html(dT.regTime);
+            var rows = [];
+            $.each(dT.hobby, function(i, ele) {
+                console.log(i);
+                var li = '<li>' + ele + '</li>';
+                rows.push(li);
+            });
+            console.log(rows);
+            $('#aihao').html(rows.join(''));
+        })
+    </script>
+</body>
+
+</html>
